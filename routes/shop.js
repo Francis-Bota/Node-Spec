@@ -1,5 +1,5 @@
 
-const product = require('../models/productModel');
+const product = require('../models/product');
 
 const express = require('express');
 

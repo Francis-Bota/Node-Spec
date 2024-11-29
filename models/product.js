@@ -1,4 +1,4 @@
-const { sql } = require("../config/db")
+const { sql } = require("../database/db")
 
 
  module.exports= class Product {

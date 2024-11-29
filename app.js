@@ -1,5 +1,6 @@
 const path = require('path');
-const {sql} = require("./config/db")
+const {sql} = require("./database/db")
+const migration = require('database/migration')
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -21,11 +22,7 @@ app.use(shopRoutes);
 app.use((req, res, next) => {
   res.status(404).render('404', { pageTitle: 'Page Not Found' });
 });
-async function main() {
-  await sql`CREATE TABLE if not exists product (id serial primary key, title varchar(255))`;
-  const result = await sql`SELECT * FROM product`;
-  console.log(result);
-}
 
-main();
+migration()
+
 app.listen(3000);
